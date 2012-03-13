@@ -1,0 +1,103 @@
+#!/usr/bin/perl
+
+package peri_doc; # to make PodWeaver happy
+
+use 5.010;
+use strict;
+use warnings;
+
+our $VERSION = '0.21'; # VERSION
+
+eval { require Perinci::CmdLine };
+if ($@) {
+    die "This script requires Perinci::CmdLine, please install it first.\n";
+}
+
+our %SPEC;
+
+$SPEC{generate_doc} = {
+    v => 1.1,
+    args => {
+        url => {
+            summary => 'URL',
+            req => 1,
+            pos => 0,
+            schema => 'str*',
+        },
+        format => {
+            summary => 'Format',
+            schema => 'str',
+        },
+    },
+};
+sub generate_doc {
+    require File::Which;
+
+    my %args = @_;
+    # XXX schema
+    my $url = $args{url} or return [400, "Please specify url"];
+
+    my $format = $args{format} // "man";
+    $format = "text" unless
+        File::Which::which("pod2man") && File::Which::which("man");
+
+    # XXX check if url is a module or function or ...
+
+    my ($doc, $res);
+    if ($format eq 'man') {
+        require Perinci::To::POD;
+        $doc = Perinci::To::POD->new(url=>$url);
+        $res = $doc->generate;
+        [200, "OK", $res, {
+            "cmdline.page_result"=>1,
+            "cmdline.pager"=>"pod2man | man -l -"}];
+    } else {
+        require Perinci::To::Text;
+        $doc = Perinci::To::Text->new(url=>$url);
+        $res = $doc->generate;
+        [200, "OK", $res, {"cmdline.page_result"=>1}];
+    }
+
+}
+
+Perinci::CmdLine->new(
+    log_any_app => 0, # speed up star-tup
+    url => '/peri_doc/generate_doc',
+)->run;
+
+# ABSTRACT: Display documentation of Riap code entities
+
+
+__END__
+=pod
+
+=head1 NAME
+
+peri_doc - Display documentation of Riap code entities
+
+=head1 VERSION
+
+version 0.21
+
+=head1 SYNOPSIS
+
+From command-line:
+
+ % peri-doc /Some/Module/
+ % peri-doc /Some/Module/function --format=text
+
+=head1 DESCRIPTION
+
+=head1 AUTHOR
+
+Steven Haryanto <stevenharyanto@gmail.com>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2012 by Steven Haryanto.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut
+
