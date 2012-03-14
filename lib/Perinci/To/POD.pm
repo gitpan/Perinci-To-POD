@@ -4,9 +4,9 @@ use 5.010;
 use Log::Any '$log';
 use Moo;
 
-extends 'Perinci::To::DocBase';
+extends 'Perinci::To::PackageBase';
 
-our $VERSION = '0.21'; # VERSION
+our $VERSION = '0.22'; # VERSION
 
 sub BUILD {
     my ($self, $args) = @_;
@@ -157,7 +157,7 @@ Perinci::To::POD - Generate POD documentation from Rinci metadata
 
 =head1 VERSION
 
-version 0.21
+version 0.22
 
 =head1 AUTHOR
 

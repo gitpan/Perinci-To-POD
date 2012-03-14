@@ -2,7 +2,7 @@ NAME
     Perinci::To::POD - Generate POD documentation from Rinci metadata
 
 VERSION
-    version 0.21
+    version 0.22
 
 AUTHOR
     Steven Haryanto <stevenharyanto@gmail.com>
