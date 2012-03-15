@@ -12,12 +12,12 @@ my %module_build_args = (
   "configure_requires" => {
     "Module::Build" => "0.3601"
   },
-  "dist_abstract" => "Generate POD documentation from Rinci metadata",
+  "dist_abstract" => "Generate POD documentation from Rinci package metadata",
   "dist_author" => [
     "Steven Haryanto <stevenharyanto\@gmail.com>"
   ],
   "dist_name" => "Perinci-To-POD",
-  "dist_version" => "0.22",
+  "dist_version" => "0.23",
   "license" => "perl",
   "module_name" => "Perinci::To::POD",
   "recommends" => {},
@@ -26,7 +26,7 @@ my %module_build_args = (
     "File::Which" => 0,
     "Markdown::Pod" => 0,
     "Perinci::CmdLine" => "0.42",
-    "Perinci::To::PackageBase" => "0.08",
+    "Perinci::To::PackageBase" => "0.09",
     "Riap" => "1.1.8",
     "Rinci" => "1.1.10",
     "Test::More" => "0.98",
