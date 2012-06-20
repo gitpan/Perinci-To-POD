@@ -18,11 +18,11 @@ requires:
   File::Which: 0
   Markdown::Pod: 0
   Perinci::CmdLine: 0.42
-  Perinci::To::PackageBase: 0.12
+  Perinci::To::PackageBase: 0.13
   Riap: 1.1.8
   Rinci: 1.1.10
   perl: 5.010000
 resources:
   homepage: http://search.cpan.org/dist/Perinci-To-POD/
   repository: http://github.com/sharyanto/perl-Perinci-To-POD
-version: 0.24
+version: 0.25
