@@ -6,7 +6,7 @@ use Moo;
 
 extends 'Perinci::To::PackageBase';
 
-our $VERSION = '0.23'; # VERSION
+our $VERSION = '0.24'; # VERSION
 
 sub BUILD {
     my ($self, $args) = @_;
@@ -52,12 +52,20 @@ sub doc_gen_version {
 sub doc_gen_description {
     my ($self) = @_;
 
-    return unless $self->doc_parse->{description};
-
     $self->add_doc_lines(
         "=head1 " . uc($self->loc("Description")),
-        "",
-        $self->_md2pod($self->doc_parse->{description}),
+        ""
+    );
+
+    if ($self->doc_parse->{description}) {
+        $self->add_doc_lines(
+            $self->_md2pod($self->doc_parse->{description}),
+            "",
+        );
+    }
+
+    $self->add_doc_lines(
+        $self->loc("This module has L<Rinci> metadata") . ".",
         "",
     );
 }
@@ -77,6 +85,36 @@ sub _fdoc_gen {
         if $p->{summary};
     $self->add_doc_lines($self->_md2pod($p->{description}), "")
         if $p->{description};
+
+    my $feat = $p->{meta}{features} // {};
+    my @ft;
+    push @ft, $self->loc("This function supports reverse operation.")
+        if $feat->{reverse};
+    push @ft, $self->loc("This function supports undo operation.")
+        if $feat->{undo};
+    push @ft, $self->loc("This function supports dry-run operation.")
+        if $feat->{dry_run};
+    push @ft, $self->loc("This function is pure (produce no side effects).")
+        if $feat->{pure};
+    push @ft, $self->loc("This function is immutable (returns same result ".
+                             "for same arguments).")
+        if $feat->{immutable};
+    push @ft, $self->loc("This function is idempotent (repeated invocations ".
+                             "with same arguments has the same effect as ".
+                                 "single invocation).")
+        if $feat->{idempotent};
+    if ($feat->{tx} && $feat->{tx}{req}) {
+        push @ft, $self->loc("This function requires transactions.");
+    } elsif ($feat->{tx} && $feat->{tx}{use}) {
+        push @ft, $self->loc("This function can use transactions.")
+    }
+    push @ft, $self->loc("This function can start a new transaction.")
+        if $feat->{tx} && $feat->{tx}{start};
+    push @ft, $self->loc("This function can end (commit) transactions.")
+        if $feat->{tx} && $feat->{tx}{end};
+
+    $self->add_doc_lines(join(" ", @ft), "", "") if @ft;
+
     if ($has_args) {
         $self->add_doc_lines(
             $self->loc("Arguments") .
@@ -136,6 +174,13 @@ sub doc_gen_functions {
         "",
     );
 
+    # temporary, since we don't parse export information yet (and
+    # Perinci::Exporter is not yet written anyway)
+    $self->add_doc_lines(
+        $self->loc("None are exported by default, but they are exportable."),
+        "",
+    );
+
     # XXX categorize functions based on tags
     for my $url (sort keys %$pff) {
         my $p = $pff->{$url};
@@ -157,7 +202,7 @@ Perinci::To::POD - Generate POD documentation from Rinci package metadata
 
 =head1 VERSION
 
-version 0.23
+version 0.24
 
 =head1 AUTHOR
 

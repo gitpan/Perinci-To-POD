@@ -7,7 +7,8 @@ use Module::Build 0.3601;
 
 my %module_build_args = (
   "build_requires" => {
-    "Module::Build" => "0.3601"
+    "Module::Build" => "0.3601",
+    "Test::More" => "0.98"
   },
   "configure_requires" => {
     "Module::Build" => "0.3601"
@@ -17,7 +18,7 @@ my %module_build_args = (
     "Steven Haryanto <stevenharyanto\@gmail.com>"
   ],
   "dist_name" => "Perinci-To-POD",
-  "dist_version" => "0.23",
+  "dist_version" => "0.24",
   "license" => "perl",
   "module_name" => "Perinci::To::POD",
   "recommends" => {},
@@ -26,10 +27,9 @@ my %module_build_args = (
     "File::Which" => 0,
     "Markdown::Pod" => 0,
     "Perinci::CmdLine" => "0.42",
-    "Perinci::To::PackageBase" => "0.09",
+    "Perinci::To::PackageBase" => "0.12",
     "Riap" => "1.1.8",
     "Rinci" => "1.1.10",
-    "Test::More" => "0.98",
     "perl" => "5.010000"
   },
   "script_files" => [

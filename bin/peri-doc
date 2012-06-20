@@ -1,12 +1,10 @@
 #!/usr/bin/perl
 
-package peri_doc; # to make PodWeaver happy
-
 use 5.010;
 use strict;
 use warnings;
 
-our $VERSION = '0.23'; # VERSION
+our $VERSION = '0.24'; # VERSION
 
 eval { require Perinci::CmdLine };
 if ($@) {
@@ -62,10 +60,11 @@ sub generate_doc {
 
 Perinci::CmdLine->new(
     log_any_app => 0, # speed up star-tup
-    url => '/peri_doc/generate_doc',
+    url => '/main/generate_doc',
 )->run;
 
 # ABSTRACT: Display documentation of Riap code entities
+# PODNAME: peri-doc
 
 
 __END__
@@ -73,11 +72,11 @@ __END__
 
 =head1 NAME
 
-peri_doc - Display documentation of Riap code entities
+peri-doc - Display documentation of Riap code entities
 
 =head1 VERSION
 
-version 0.23
+version 0.24
 
 =head1 SYNOPSIS
 
