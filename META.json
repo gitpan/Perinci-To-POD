@@ -29,9 +29,9 @@
             "File::Which" : 0,
             "Markdown::Pod" : 0,
             "Perinci::CmdLine" : "0.42",
-            "Perinci::To::PackageBase" : "0.13",
+            "Perinci::To::PackageBase" : "0.14",
             "Riap" : "v1.1.8",
-            "Rinci" : "v1.1.10",
+            "Rinci" : "v1.1.11",
             "perl" : "5.010000"
          }
       },
@@ -48,6 +48,6 @@
          "url" : "http://github.com/sharyanto/perl-Perinci-To-POD"
       }
    },
-   "version" : "0.25"
+   "version" : "0.26"
 }
 

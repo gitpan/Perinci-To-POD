@@ -4,7 +4,7 @@ use 5.010;
 use strict;
 use warnings;
 
-our $VERSION = '0.25'; # VERSION
+our $VERSION = '0.26'; # VERSION
 
 eval { require Perinci::CmdLine };
 if ($@) {
@@ -76,14 +76,14 @@ peri-doc - Display documentation of Riap code entities
 
 =head1 VERSION
 
-version 0.25
+version 0.26
 
 =head1 SYNOPSIS
 
 From command-line:
 
  % peri-doc /Some/Module/
- % peri-doc /Some/Module/function --format=text
+ % peri-doc --help
 
 =head1 DESCRIPTION
 
