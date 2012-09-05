@@ -2,7 +2,7 @@ package Perinci::To::POD::I18N;
 
 use base 'Perinci::To::PackageBase::I18N';
 
-our $VERSION = '0.26'; # VERSION
+our $VERSION = '0.27'; # VERSION
 
 1;
 # ABSTRACT: Project class for Perinci::To::POD
@@ -16,7 +16,7 @@ Perinci::To::POD::I18N - Project class for Perinci::To::POD
 
 =head1 VERSION
 
-version 0.26
+version 0.27
 
 =head1 AUTHOR
 

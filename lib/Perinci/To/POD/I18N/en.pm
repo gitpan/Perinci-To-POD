@@ -4,7 +4,7 @@ use parent qw(Perinci::To::POD::I18N Perinci::To::PackageBase::I18N::en);
 use Locale::Maketext::Lexicon::Gettext;
 our %Lexicon = %{ Locale::Maketext::Lexicon::Gettext->parse(<DATA>) };
 
-our $VERSION = '0.26'; # VERSION
+our $VERSION = '0.27'; # VERSION
 
 #use Data::Dump; dd \%Lexicon;
 
@@ -20,7 +20,7 @@ Perinci::To::POD::I18N::en - English translation for Perinci::To::POD
 
 =head1 VERSION
 
-version 0.26
+version 0.27
 
 =head1 AUTHOR
 
@@ -54,19 +54,17 @@ msgstr "None are exported by default, but they are exportable."
 msgid  "Pass -reverse=>1 to reverse operation."
 msgstr "Pass -reverse=>1 to reverse operation."
 
-msgid  "To undo, pass -undo_action=>'undo' to function. You will also need to pass -undo_data, unless you use transaction. For more details on undo protocol, see L<Rinci::function::Undo>."
-msgstr "To undo, pass -undo_action=>'undo' to function. You will also need to pass -undo_data, unless you use transaction. For more details on undo protocol, see L<Rinci::function::Undo>."
+msgid  "To undo, pass -undo_action=>'undo' to function. You will also need to pass -undo_data. For more details on undo protocol, see L<Rinci::Undo>."
+msgstr "To undo, pass -undo_action=>'undo' to function. You will also need to pass -undo_data. For more details on undo protocol, see L<Rinci::Undo>."
 
-msgid  "Required if you want undo and you do not use transaction. For more details on undo protocol, see L<Rinci::function::Undo>."
-msgstr "Required if you want undo and you do not use transaction. For more details on undo protocol, see L<Rinci::function::Undo>."
+msgid  "Required if you pass -undo_action=>'undo'. For more details on undo protocol, see L<Rinci::Undo>."
+msgstr "Required if you pass -undo_action=>'undo'. For more details on undo protocol, see L<Rinci::Undo>."
 
 msgid  "Pass -dry_run=>1 to enable simulation mode."
 msgstr "Pass -dry_run=>1 to enable simulation mode."
 
-msgid  "Instance of transaction manager object, usually L<Perinci::Tx::Manager>. Usually you do not have to pass this yourself, L<Perinci::Access::InProcess> will do it for you. For more details on transactions, see L<Rinci::function::Transaction>."
-msgstr "Instance of transaction manager object, usually L<Perinci::Tx::Manager>. Usually you do not have to pass this yourself, L<Perinci::Access::InProcess> will do it for you. For more details on transactions, see L<Rinci::function::Transaction>."
+msgid  "This function supports transactions."
+msgstr "This function supports transactions."
 
-msgid  "You currently can set this to 'rollback'. Usually you do not have to pass this yourself, L<Perinci::Access::InProcess> will do it for you. For more details on transactions, see L<Rinci::function::Transaction>."
-msgstr "You currently can set this to 'rollback'. Usually you do not have to pass this yourself, L<Perinci::Access::InProcess> will do it for you. For more details on transactions, see L<Rinci::function::Transaction>."
-
-
+msgid  "For more information on transaction, see L<Rinci::Transaction>."
+msgstr "For more information on transaction, see L<Rinci::Transaction>."

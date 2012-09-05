@@ -4,7 +4,6 @@ author:
   - 'Steven Haryanto <stevenharyanto@gmail.com>'
 build_requires:
   Module::Build: 0.3601
-  Test::More: 0.98
 configure_requires:
   Module::Build: 0.3601
 dynamic_config: 0
@@ -16,13 +15,19 @@ meta-spec:
 name: Perinci-To-POD
 requires:
   File::Which: 0
+  Locale::Maketext::Lexicon::Gettext: 0
+  Log::Any: 0
   Markdown::Pod: 0
+  Moo: 0
   Perinci::CmdLine: 0.42
-  Perinci::To::PackageBase: 0.14
-  Riap: 1.1.8
-  Rinci: 1.1.11
-  perl: 5.010000
+  Perinci::To::PackageBase: 0.15
+  Perinci::To::PackageBase::I18N: 0
+  Perinci::To::PackageBase::I18N::en: 0
+  Perinci::To::Text: 0
+  Riap: v1.1.8
+  Rinci: v1.1.29
+  perl: 5.010001
 resources:
   homepage: http://search.cpan.org/dist/Perinci-To-POD/
   repository: http://github.com/sharyanto/perl-Perinci-To-POD
-version: 0.26
+version: 0.27
