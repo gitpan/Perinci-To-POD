@@ -30,4 +30,4 @@ requires:
 resources:
   homepage: http://search.cpan.org/dist/Perinci-To-POD/
   repository: http://github.com/sharyanto/perl-Perinci-To-POD
-version: 0.27
+version: 0.28

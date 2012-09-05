@@ -6,7 +6,7 @@ use Moo;
 
 extends 'Perinci::To::PackageBase';
 
-our $VERSION = '0.27'; # VERSION
+our $VERSION = '0.28'; # VERSION
 
 sub BUILD {
     my ($self, $args) = @_;
@@ -142,7 +142,7 @@ sub _fdoc_gen {
                 "",
                 "For more information on transaction, see ",
                 "L<Rinci::Transaction>.")),
-        } for qw(-tx_action -tx_action_id -tx_v -tx_is_rollback),
+        } for qw(-tx_action -tx_action_id -tx_v -tx_rollback -tx_recovery),
     }
     $self->add_doc_lines(join(" ", @ft), "", "") if @ft;
 
@@ -262,7 +262,7 @@ Perinci::To::POD - Generate POD documentation from Rinci package metadata
 
 =head1 VERSION
 
-version 0.27
+version 0.28
 
 =head1 AUTHOR
 
