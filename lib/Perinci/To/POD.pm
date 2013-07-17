@@ -1,12 +1,12 @@
 package Perinci::To::POD;
 
-use 5.010;
+use 5.010001;
 use Log::Any '$log';
 use Moo;
 
 extends 'Perinci::To::PackageBase';
 
-our $VERSION = '0.28'; # VERSION
+our $VERSION = '0.29'; # VERSION
 
 sub BUILD {
     my ($self, $args) = @_;
@@ -64,10 +64,10 @@ sub doc_gen_description {
         );
     }
 
-    $self->add_doc_lines(
-        $self->loc("This module has L<Rinci> metadata") . ".",
-        "",
-    );
+    #$self->add_doc_lines(
+    #    $self->loc("This module has L<Rinci> metadata") . ".",
+    #    "",
+    #);
 }
 
 sub _fdoc_gen {
@@ -256,13 +256,30 @@ sub doc_gen_functions {
 __END__
 =pod
 
+=encoding utf-8
+
 =head1 NAME
 
 Perinci::To::POD - Generate POD documentation from Rinci package metadata
 
 =head1 VERSION
 
-version 0.28
+version 0.29
+
+=head1 SYNOPSIS
+
+You can use the included L<peri-pod> script, or:
+
+ use Perinci::To::POD;
+
+ # to generate POD for the whole module
+ my $doc = Perinci::To::POD->new(url => "/Some/Module/");
+ say $doc->generate_doc;
+
+ # to generate POD for a certain function only, currently you can parse/cut the
+ # whole module POD by yourself.
+
+=for Pod::Coverage .+
 
 =head1 AUTHOR
 
@@ -270,10 +287,17 @@ Steven Haryanto <stevenharyanto@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Steven Haryanto.
+This software is copyright (c) 2013 by Steven Haryanto.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
+
+=head1 DESCRIPTION
+
+=head1 FUNCTIONS
+
+
+None are exported by default, but they are exportable.
 
 =cut
 

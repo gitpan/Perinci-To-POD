@@ -4,7 +4,7 @@ use 5.010;
 use strict;
 use warnings;
 
-our $VERSION = '0.28'; # VERSION
+our $VERSION = '0.29'; # VERSION
 
 eval { require Perinci::CmdLine };
 if ($@) {
@@ -58,10 +58,13 @@ sub generate_doc {
 
 }
 
-Perinci::CmdLine->new(
-    log_any_app => 0, # speed up star-tup
+my $cmd = Perinci::CmdLine->new(
+    log_any_app => 0, # speed up start-up
     url => '/main/generate_doc',
-)->run;
+);
+delete $cmd->common_opts->{format};
+delete $cmd->common_opts->{format_options};
+$cmd->run;
 
 # ABSTRACT: Display documentation of Riap code entities
 # PODNAME: peri-doc
@@ -70,13 +73,15 @@ Perinci::CmdLine->new(
 __END__
 =pod
 
+=encoding utf-8
+
 =head1 NAME
 
 peri-doc - Display documentation of Riap code entities
 
 =head1 VERSION
 
-version 0.28
+version 0.29
 
 =head1 SYNOPSIS
 
@@ -93,7 +98,7 @@ Steven Haryanto <stevenharyanto@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Steven Haryanto.
+This software is copyright (c) 2013 by Steven Haryanto.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

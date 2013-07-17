@@ -3,14 +3,30 @@ NAME
     metadata
 
 VERSION
-    version 0.28
+    version 0.29
+
+SYNOPSIS
+    You can use the included peri-pod script, or:
+
+     use Perinci::To::POD;
+
+     # to generate POD for the whole module
+     my $doc = Perinci::To::POD->new(url => "/Some/Module/");
+     say $doc->generate_doc;
+
+     # to generate POD for a certain function only, currently you can parse/cut the
+     # whole module POD by yourself.
 
 AUTHOR
     Steven Haryanto <stevenharyanto@gmail.com>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2012 by Steven Haryanto.
+    This software is copyright (c) 2013 by Steven Haryanto.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
+
+DESCRIPTION
+FUNCTIONS
+    None are exported by default, but they are exportable.
 
