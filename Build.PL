@@ -17,7 +17,7 @@ my %module_build_args = (
     "Steven Haryanto <stevenharyanto\@gmail.com>"
   ],
   "dist_name" => "Perinci-To-POD",
-  "dist_version" => "0.31",
+  "dist_version" => "0.32",
   "license" => "perl",
   "module_name" => "Perinci::To::POD",
   "recommends" => {},
@@ -28,7 +28,7 @@ my %module_build_args = (
     "Log::Any" => 0,
     "Markdown::Pod" => 0,
     "Moo" => 0,
-    "Perinci::CmdLine" => "0.83",
+    "Perinci::CmdLine" => "0.80",
     "Perinci::Sub::To::POD" => 0,
     "Perinci::To::PackageBase" => "0.20",
     "Perinci::To::PackageBase::I18N" => "0.20",

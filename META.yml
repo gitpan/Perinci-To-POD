@@ -19,7 +19,7 @@ requires:
   Log::Any: 0
   Markdown::Pod: 0
   Moo: 0
-  Perinci::CmdLine: 0.83
+  Perinci::CmdLine: 0.80
   Perinci::Sub::To::POD: 0
   Perinci::To::PackageBase: 0.20
   Perinci::To::PackageBase::I18N: 0.20
@@ -31,4 +31,4 @@ requires:
 resources:
   homepage: http://search.cpan.org/dist/Perinci-To-POD/
   repository: http://github.com/sharyanto/perl-Perinci-To-POD
-version: 0.31
+version: 0.32
