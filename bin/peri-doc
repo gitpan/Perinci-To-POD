@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-our $VERSION = '0.30'; # VERSION
+our $VERSION = '0.31'; # VERSION
 
 print "This script has been split to peri-func-doc and peri-pkg-doc. Please run one of those scripts.\n";
 exit 0;
@@ -20,7 +20,7 @@ peri-doc - Deprecated script
 
 =head1 VERSION
 
-version 0.30
+version 0.31
 
 =head1 AUTHOR
 
