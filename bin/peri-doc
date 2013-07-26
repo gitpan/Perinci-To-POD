@@ -1,96 +1,26 @@
 #!/usr/bin/perl
 
-use 5.010;
-use strict;
-use warnings;
+our $VERSION = '0.30'; # VERSION
 
-our $VERSION = '0.29'; # VERSION
-
-eval { require Perinci::CmdLine };
-if ($@) {
-    die "This script requires Perinci::CmdLine, please install it first.\n";
-}
-
-our %SPEC;
-
-$SPEC{generate_doc} = {
-    v => 1.1,
-    args => {
-        url => {
-            summary => 'URL',
-            req => 1,
-            pos => 0,
-            schema => 'str*',
-        },
-        format => {
-            summary => 'Format',
-            schema => 'str',
-        },
-    },
-};
-sub generate_doc {
-    require File::Which;
-
-    my %args = @_;
-    # XXX schema
-    my $url = $args{url} or return [400, "Please specify url"];
-
-    my $format = $args{format} // "man";
-    $format = "text" unless
-        File::Which::which("pod2man") && File::Which::which("man");
-
-    # XXX check if url is a module or function or ...
-
-    my ($doc, $res);
-    if ($format eq 'man') {
-        require Perinci::To::POD;
-        $doc = Perinci::To::POD->new(url=>$url);
-        $res = $doc->generate_doc;
-        [200, "OK", $res, {
-            "cmdline.page_result"=>1,
-            "cmdline.pager"=>"pod2man | man -l -"}];
-    } else {
-        require Perinci::To::Text;
-        $doc = Perinci::To::Text->new(url=>$url);
-        $res = $doc->generate_doc;
-        [200, "OK", $res, {"cmdline.page_result"=>1}];
-    }
-
-}
-
-my $cmd = Perinci::CmdLine->new(
-    log_any_app => 0, # speed up start-up
-    url => '/main/generate_doc',
-);
-delete $cmd->common_opts->{format};
-delete $cmd->common_opts->{format_options};
-$cmd->run;
-
-# ABSTRACT: Display documentation of Riap code entities
+print "This script has been split to peri-func-doc and peri-pkg-doc. Please run one of those scripts.\n";
+exit 0;
+1;
+# ABSTRACT: Deprecated script
 # PODNAME: peri-doc
 
-
 __END__
+
 =pod
 
 =encoding utf-8
 
 =head1 NAME
 
-peri-doc - Display documentation of Riap code entities
+peri-doc - Deprecated script
 
 =head1 VERSION
 
-version 0.29
-
-=head1 SYNOPSIS
-
-From command-line:
-
- % peri-doc /Some/Module/
- % peri-doc --help
-
-=head1 DESCRIPTION
+version 0.30
 
 =head1 AUTHOR
 
@@ -104,4 +34,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

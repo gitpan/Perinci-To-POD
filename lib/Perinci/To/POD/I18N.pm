@@ -2,12 +2,13 @@ package Perinci::To::POD::I18N;
 
 use base 'Perinci::To::PackageBase::I18N';
 
-our $VERSION = '0.29'; # VERSION
+our $VERSION = '0.30'; # VERSION
 
 1;
 # ABSTRACT: Project class for Perinci::To::POD
 
 __END__
+
 =pod
 
 =encoding utf-8
@@ -18,7 +19,7 @@ Perinci::To::POD::I18N - Project class for Perinci::To::POD
 
 =head1 VERSION
 
-version 0.29
+version 0.30
 
 =head1 AUTHOR
 
@@ -31,12 +32,4 @@ This software is copyright (c) 2013 by Steven Haryanto.
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=head1 DESCRIPTION
-
-=head1 FUNCTIONS
-
-
-None are exported by default, but they are exportable.
-
 =cut
-

@@ -7,6 +7,7 @@ META.json
 META.yml
 README
 bin/peri-doc
+bin/peri-pkg-doc
 dist.ini
 lib/Perinci/To/POD.pm
 lib/Perinci/To/POD/I18N.pm
