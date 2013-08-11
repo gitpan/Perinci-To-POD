@@ -6,7 +6,7 @@ use Moo;
 
 extends 'Perinci::To::PackageBase';
 
-our $VERSION = '0.32'; # VERSION
+our $VERSION = '0.33'; # VERSION
 
 sub BUILD {
     my ($self, $args) = @_;
@@ -24,7 +24,7 @@ sub gen_doc_section_summary {
     my ($self) = @_;
 
     $self->SUPER::gen_doc_section_summary;
-    my $res = $self->{_res};
+    my $res = $self->{_doc_res};
 
     my $name_summary = join(
         "",
@@ -47,7 +47,7 @@ sub gen_doc_section_version {
     $self->add_doc_lines(
         "=head1 " . uc($self->loc("Version")),
         "",
-        $self->{_meta}{entity_version} // '?',
+        $self->{_doc_meta}{entity_version} // '?',
         "",
     );
 }
@@ -61,7 +61,7 @@ sub gen_doc_section_description {
     );
 
     $self->SUPER::gen_doc_section_description;
-    my $res = $self->{_res};
+    my $res = $self->{_doc_res};
 
     if ($res->{description}) {
         $self->add_doc_lines(
@@ -80,9 +80,9 @@ sub gen_doc_section_functions {
     require Perinci::Sub::To::POD;
 
     my ($self) = @_;
-    my $res = $self->{_res};
+    my $res = $self->{_doc_res};
 
-    $self->{_fgen} //= Perinci::Sub::To::POD->new(
+    $self->{_doc_fgen} //= Perinci::Sub::To::POD->new(
         _pa => $self->_pa, # to avoid multiple instances of pa objects
     );
 
@@ -127,7 +127,7 @@ Perinci::To::POD - Generate POD documentation for a package from Rinci metadata
 
 =head1 VERSION
 
-version 0.32
+version 0.33
 
 =head1 SYNOPSIS
 

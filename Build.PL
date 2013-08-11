@@ -17,7 +17,7 @@ my %module_build_args = (
     "Steven Haryanto <stevenharyanto\@gmail.com>"
   ],
   "dist_name" => "Perinci-To-POD",
-  "dist_version" => "0.32",
+  "dist_version" => "0.33",
   "license" => "perl",
   "module_name" => "Perinci::To::POD",
   "recommends" => {},
@@ -29,11 +29,11 @@ my %module_build_args = (
     "Markdown::Pod" => 0,
     "Moo" => 0,
     "Perinci::CmdLine" => "0.80",
-    "Perinci::Sub::To::POD" => 0,
+    "Perinci::Sub::To::POD" => "0.04",
     "Perinci::To::PackageBase" => "0.20",
     "Perinci::To::PackageBase::I18N" => "0.20",
     "Perinci::To::PackageBase::I18N::en" => "0.20",
-    "Perinci::To::Text" => "0.20",
+    "Perinci::To::Text" => "0.22",
     "Riap" => "v1.1.8",
     "Rinci" => "v1.1.29",
     "perl" => "5.010001"
@@ -42,7 +42,12 @@ my %module_build_args = (
     "bin/peri-pkg-doc",
     "bin/peri-doc"
   ],
-  "test_requires" => {}
+  "test_requires" => {
+    "Capture::Tiny" => 0,
+    "Test::More" => "0.88",
+    "Test::Script" => "1.05",
+    "blib" => 0
+  }
 );
 
 
