@@ -6,7 +6,7 @@ use Moo;
 
 extends 'Perinci::To::PackageBase';
 
-our $VERSION = '0.33'; # VERSION
+our $VERSION = '0.34'; # VERSION
 
 sub BUILD {
     my ($self, $args) = @_;
@@ -47,7 +47,7 @@ sub gen_doc_section_version {
     $self->add_doc_lines(
         "=head1 " . uc($self->loc("Version")),
         "",
-        $self->{_doc_meta}{entity_version} // '?',
+        $self->{_doc_meta}{entity_v} // '?',
         "",
     );
 }
@@ -127,7 +127,7 @@ Perinci::To::POD - Generate POD documentation for a package from Rinci metadata
 
 =head1 VERSION
 
-version 0.33
+version 0.34
 
 =head1 SYNOPSIS
 

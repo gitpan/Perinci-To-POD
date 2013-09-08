@@ -30,9 +30,9 @@ requires:
   Perinci::To::PackageBase::I18N::en: 0.20
   Perinci::To::Text: 0.22
   Riap: v1.1.8
-  Rinci: v1.1.29
+  Rinci: v1.1.36
   perl: 5.010001
 resources:
   homepage: http://search.cpan.org/dist/Perinci-To-POD/
   repository: http://github.com/sharyanto/perl-Perinci-To-POD
-version: 0.33
+version: 0.34

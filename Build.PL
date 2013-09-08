@@ -17,7 +17,7 @@ my %module_build_args = (
     "Steven Haryanto <stevenharyanto\@gmail.com>"
   ],
   "dist_name" => "Perinci-To-POD",
-  "dist_version" => "0.33",
+  "dist_version" => "0.34",
   "license" => "perl",
   "module_name" => "Perinci::To::POD",
   "recommends" => {},
@@ -35,7 +35,7 @@ my %module_build_args = (
     "Perinci::To::PackageBase::I18N::en" => "0.20",
     "Perinci::To::Text" => "0.22",
     "Riap" => "v1.1.8",
-    "Rinci" => "v1.1.29",
+    "Rinci" => "v1.1.36",
     "perl" => "5.010001"
   },
   "script_files" => [
