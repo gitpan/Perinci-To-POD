@@ -14,14 +14,9 @@
    },
    "name" : "Perinci-To-POD",
    "prereqs" : {
-      "build" : {
-         "requires" : {
-            "Module::Build" : "0.3601"
-         }
-      },
       "configure" : {
          "requires" : {
-            "Module::Build" : "0.3601"
+            "ExtUtils::MakeMaker" : "6.30"
          }
       },
       "develop" : {
@@ -52,10 +47,10 @@
       },
       "test" : {
          "requires" : {
-            "Capture::Tiny" : "0",
-            "Test::More" : "0.88",
-            "Test::Script" : "1.05",
-            "blib" : "0"
+            "File::Spec" : "0",
+            "IO::Handle" : "0",
+            "IPC::Open3" : "0",
+            "Test::More" : "0"
          }
       }
    },
@@ -66,6 +61,6 @@
          "url" : "http://github.com/sharyanto/perl-Perinci-To-POD"
       }
    },
-   "version" : "0.34"
+   "version" : "0.35"
 }
 

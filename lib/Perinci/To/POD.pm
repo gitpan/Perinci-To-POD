@@ -6,7 +6,7 @@ use Moo;
 
 extends 'Perinci::To::PackageBase';
 
-our $VERSION = '0.34'; # VERSION
+our $VERSION = '0.35'; # VERSION
 
 sub BUILD {
     my ($self, $args) = @_;
@@ -93,15 +93,10 @@ sub gen_doc_section_functions {
 
     $self->SUPER::gen_doc_section_functions;
 
-    # temporary, since we don't parse export information yet
-    $self->add_doc_lines(
-        $self->loc("None are exported by default, but they are exportable."),
-        "",
-    );
+    # XXX if module uses Perinci::Exporter, show a basic usage for importing and
+    # show exportability information
 
-    # XXX if module uses Perinci::Exporter, show a basic usage for importing
-
-    # XXX categorize functions based on tags
+    # XXX categorize functions based on tags?
     for my $furi (sort keys %{ $res->{functions} }) {
         my $fname;
         for ($fname) { $_ = $furi; s!.+/!! }
@@ -127,7 +122,7 @@ Perinci::To::POD - Generate POD documentation for a package from Rinci metadata
 
 =head1 VERSION
 
-version 0.34
+version 0.35
 
 =head1 SYNOPSIS
 
@@ -155,12 +150,5 @@ This software is copyright (c) 2013 by Steven Haryanto.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
-
-=head1 DESCRIPTION
-
-=head1 FUNCTIONS
-
-
-None are exported by default, but they are exportable.
 
 =cut

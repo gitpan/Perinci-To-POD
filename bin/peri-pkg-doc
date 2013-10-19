@@ -4,7 +4,7 @@ use 5.010;
 use strict;
 use warnings;
 
-our $VERSION = '0.34'; # VERSION
+our $VERSION = '0.35'; # VERSION
 
 eval { require Perinci::CmdLine };
 if ($@) {
@@ -82,7 +82,7 @@ peri-pkg-doc - Display text/POD documentation of Riap package
 
 =head1 VERSION
 
-version 0.34
+version 0.35
 
 =head1 SYNOPSIS
 
