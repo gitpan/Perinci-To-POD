@@ -3,13 +3,14 @@ NAME
     metadata
 
 VERSION
-    version 0.35
+    version 0.36
 
 SYNOPSIS
     You can use the included peri-pkg-doc script, or:
 
      use Perinci::To::POD;
-     my $doc = Perinci::To::POD->new(url => "/Some/Module/");
+     my $doc = Perinci::To::POD->new(
+         name=>"Foo::Bar", meta => {...}, child_metas => {...});
      say $doc->gen_doc;
 
     To generate documentation for a single function, see
@@ -17,6 +18,21 @@ SYNOPSIS
 
     To generate a usage-like help message for a single function, you can try
     the peri-func-usage from the Perinci::CmdLine distribution.
+
+HOMEPAGE
+    Please visit the project's homepage at
+    <https://metacpan.org/release/Perinci-To-POD>.
+
+SOURCE
+    Source repository is at
+    <https://github.com/sharyanto/perl-Perinci-To-POD>.
+
+BUGS
+    Please report any bugs or feature requests on the bugtracker website
+    http://rt.cpan.org/Public/Dist/Display.html?Name=Perinci-To-POD
+
+    When submitting a bug or request, please include a test-file or a patch
+    to an existing test-file that illustrates the bug or desired feature.
 
 AUTHOR
     Steven Haryanto <stevenharyanto@gmail.com>

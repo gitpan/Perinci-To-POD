@@ -4,7 +4,7 @@
       "Steven Haryanto <stevenharyanto@gmail.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.132140",
+   "generated_by" : "Dist::Zilla version 5.001, CPAN::Meta::Converter version 2.132140",
    "license" : [
       "perl_5"
    ],
@@ -34,12 +34,14 @@
             "Log::Any" : "0",
             "Markdown::Pod" : "0",
             "Moo" : "0",
+            "Perinci::Access" : "0",
             "Perinci::CmdLine" : "0.80",
-            "Perinci::Sub::To::POD" : "0.04",
-            "Perinci::To::PackageBase" : "0.20",
-            "Perinci::To::PackageBase::I18N" : "0.20",
-            "Perinci::To::PackageBase::I18N::en" : "0.20",
-            "Perinci::To::Text" : "0.22",
+            "Perinci::Sub::To::POD" : "0.07",
+            "Perinci::Sub::Util" : "0",
+            "Perinci::To::PackageBase" : "0.27",
+            "Perinci::To::PackageBase::I18N" : "0.27",
+            "Perinci::To::PackageBase::I18N::en" : "0.27",
+            "Perinci::To::Text" : "0.27",
             "Riap" : "v1.1.8",
             "Rinci" : "v1.1.36",
             "perl" : "5.010001"
@@ -55,12 +57,7 @@
       }
    },
    "release_status" : "stable",
-   "resources" : {
-      "homepage" : "http://search.cpan.org/dist/Perinci-To-POD/",
-      "repository" : {
-         "url" : "http://github.com/sharyanto/perl-Perinci-To-POD"
-      }
-   },
-   "version" : "0.35"
+   "resources" : {},
+   "version" : "0.36"
 }
 

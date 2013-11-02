@@ -4,7 +4,9 @@ use 5.010;
 use strict;
 use warnings;
 
-our $VERSION = '0.35'; # VERSION
+our $VERSION = '0.36'; # VERSION
+
+use Perinci::Sub::Util qw(err);
 
 eval { require Perinci::CmdLine };
 if ($@) {
@@ -29,12 +31,25 @@ $SPEC{gen_doc} = {
     },
 };
 sub gen_doc {
+    require Perinci::Access;
     require File::Which;
+
+    state $pa = Perinci::Access->new;
 
     my %args = @_;
     # XXX schema
-    my $url = $args{url} or return [400, "Please specify url"];
+    my $url = $args{url} or return err(400, "Please specify url");
     $url = "pl:$url" if $url =~ m!^/!;
+
+    my $res;
+
+    $res = $pa->request(meta => $url);
+    return err(500, "Can't meta $url", $res) unless $res->[0] == 200;
+    my $meta = $res->[2];
+
+    $res = $pa->request(child_metas => $url);
+    return err(500, "Can't child_metas $url", $res) unless $res->[0] == 200;
+    my $cmetas = $res->[2];
 
     my $format = $args{format} // "man";
     $format = "text" unless
@@ -42,17 +57,19 @@ sub gen_doc {
 
     # XXX check if url is a module or function or ...
 
-    my ($doc, $res);
+    my $doc;
     if ($format eq 'man') {
         require Perinci::To::POD;
-        $doc = Perinci::To::POD->new(url=>$url);
+        $doc = Perinci::To::POD->new(
+            name=>$url, meta=>$meta, child_metas=>$cmetas);
         $res = $doc->gen_doc;
         [200, "OK", $res, {
             "cmdline.page_result"=>1,
             "cmdline.pager"=>"pod2man | man -l -"}];
     } else {
         require Perinci::To::Text;
-        $doc = Perinci::To::Text->new(url=>$url);
+        $doc = Perinci::To::Text->new(
+            name=>$url, meta=>$meta, child_metas=>$cmetas);
         $res = $doc->gen_doc;
         [200, "OK", $res, {"cmdline.page_result"=>1}];
     }
@@ -82,7 +99,7 @@ peri-pkg-doc - Display text/POD documentation of Riap package
 
 =head1 VERSION
 
-version 0.35
+version 0.36
 
 =head1 SYNOPSIS
 
@@ -98,6 +115,23 @@ This script will generate text/POD documentation for a Riap package. All
 information about entities like functions and variables in the package will be
 retrieved and displayed as well. The end result looks similar to a POD
 documentation for a Perl module.
+
+=head1 HOMEPAGE
+
+Please visit the project's homepage at L<https://metacpan.org/release/Perinci-To-POD>.
+
+=head1 SOURCE
+
+Source repository is at L<https://github.com/sharyanto/perl-Perinci-To-POD>.
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website
+http://rt.cpan.org/Public/Dist/Display.html?Name=Perinci-To-POD
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
 
 =head1 AUTHOR
 

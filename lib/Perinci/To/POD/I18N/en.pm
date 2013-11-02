@@ -4,7 +4,7 @@ use parent qw(Perinci::To::POD::I18N Perinci::To::PackageBase::I18N::en);
 use Locale::Maketext::Lexicon::Gettext;
 our %Lexicon = %{ Locale::Maketext::Lexicon::Gettext->parse(<DATA>) };
 
-our $VERSION = '0.35'; # VERSION
+our $VERSION = '0.36'; # VERSION
 
 #use Data::Dump; dd \%Lexicon;
 
@@ -21,7 +21,24 @@ Perinci::To::POD::I18N::en - English translation for Perinci::To::POD
 
 =head1 VERSION
 
-version 0.35
+version 0.36
+
+=head1 HOMEPAGE
+
+Please visit the project's homepage at L<https://metacpan.org/release/Perinci-To-POD>.
+
+=head1 SOURCE
+
+Source repository is at L<https://github.com/sharyanto/perl-Perinci-To-POD>.
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website
+http://rt.cpan.org/Public/Dist/Display.html?Name=Perinci-To-POD
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
 
 =head1 AUTHOR
 

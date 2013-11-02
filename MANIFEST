@@ -6,7 +6,6 @@ META.json
 META.yml
 Makefile.PL
 README
-bin/peri-doc
 bin/peri-pkg-doc
 dist.ini
 lib/Perinci/To/POD.pm
